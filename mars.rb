@@ -1,4 +1,4 @@
-class Mars
+class MarsRover
   def initialize(coordinates, max_coordinates)
     @max_x = max_coordinates[0].to_i
     @max_y = max_coordinates[1].to_i
@@ -49,14 +49,11 @@ class Mars
   end
 
   def display
-    puts "(#{@x}, #{@y}, #{@head})"
+    return "#{@x} #{@y} #{@head}"
   end
 
 end
 
-# mars = Mars.new(1, 2, "N")
-# directions = "LMLMLMLMM".split("")
-# directions.each { |direction| mars.move(direction); puts mars.display }
 
 puts "Enter the number of rovers"
 number_of_rovers = gets.chomp.to_i
@@ -74,9 +71,9 @@ while number_of_rovers > 0
   puts "Enter the letters for navigation"
   direction_input = gets.chomp
   directions = direction_input.split("")
-  mars = Mars.new(coordinates, max_coordinates)
+  mars = MarsRover.new(coordinates, max_coordinates)
   directions.each { |direction| mars.move(direction) }
-  puts mars.display
+  puts "Rovers position: #{mars.display}"
 
   number_of_rovers -= 1
 end
